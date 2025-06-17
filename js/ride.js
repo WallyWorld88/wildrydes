@@ -18,12 +18,7 @@ WildRydes.map = WildRydes.map || {};
     function requestUnicorn(pickupLocation) {
         alert('calling api :\n');
         alert('token:\n' + authToken);
-        alert('body :\n' + JSON.stringify({
-                PickupLocation: {
-                    Latitude: pickupLocation.latitude,
-                    Longitude: pickupLocation.longitude
-                }
-            });
+        alert('body :\n' + pickupLocation.latitude);
         $.ajax({
             method: 'POST',
             url: _config.api.invokeUrl + '/ride',
