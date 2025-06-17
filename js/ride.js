@@ -24,7 +24,7 @@ WildRydes.map = WildRydes.map || {};
             url: _config.api.invokeUrl + '/ride',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': authToken
+                'Authorization': 'Bearer ' + authToken
             },
             data: JSON.stringify({
                 PickupLocation: {
