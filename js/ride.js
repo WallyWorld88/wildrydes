@@ -19,7 +19,7 @@ WildRydes.map = WildRydes.map || {};
         alert('calling api :\n');
         alert('token:\n' + authToken);
         alert('body :\n' + pickupLocation.latitude);
-     
+     */
             fetch('https://jsonplaceholder.typicode.com/posts', {
               method: 'POST', // Specify the HTTP method
               headers: {
@@ -34,7 +34,7 @@ WildRydes.map = WildRydes.map || {};
               .catch(error => {
                 console.error('Error creating post:', error);
               });
-        
+       */ 
 
         var urlPost;
         alert('fetch url:\n' + urlPost);
