@@ -19,7 +19,7 @@ WildRydes.map = WildRydes.map || {};
         alert('calling api :\n');
         alert('token:\n' + authToken);
         alert('body :\n' + pickupLocation.latitude);
-     */
+     /*
             fetch('https://jsonplaceholder.typicode.com/posts', {
               method: 'POST', // Specify the HTTP method
               headers: {
@@ -37,7 +37,6 @@ WildRydes.map = WildRydes.map || {};
        */ 
 
         var urlPost;
-        alert('fetch url:\n' + urlPost);
         const newPost = {
               PickupLocation: {
                         Latitude: pickupLocation.latitude,
@@ -46,6 +45,8 @@ WildRydes.map = WildRydes.map || {};
             };
         
         urlPost = _config.api.invokeUrl + '/ride'
+        alert('fetch url:\n' + urlPost);
+        /*
         fetch(urlPost, {
               method: 'POST', // Specify the method as POST
               headers: {
@@ -60,6 +61,7 @@ WildRydes.map = WildRydes.map || {};
               .catch(error => {
                 console.error('Error creating post:', error);
               });
+              */
 
         /*
         $.ajax({
