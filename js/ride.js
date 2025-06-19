@@ -19,6 +19,26 @@ WildRydes.map = WildRydes.map || {};
         alert('calling api :\n');
         alert('token:\n' + authToken);
         alert('body :\n' + pickupLocation.latitude);
+
+        var urlPost;
+        alert('fetch url:\n' + urlPost);
+        
+        urlPost = _config.api.invokeUrl + '/ride'
+        fetch(urlPost, {
+          method: 'POST', // Specify the method as POST
+          headers: {
+            'Content-Type': 'application/json' // Set the content type to application/json if sending JSON data
+          },
+          body: JSON.stringify({
+                PickupLocation: {
+                    Latitude: pickupLocation.latitude,
+                    Longitude: pickupLocation.longitude
+        })
+        .then(response => response.json()) // Handle the response (e.g., parse it as JSON)
+        .then(data => console.log(data)) // Work with the data received from the server
+        .catch(error => console.error('Error:', error)); // Handle any errors that occur
+
+        /*
         $.ajax({
             method: 'POST',
             url: _config.api.invokeUrl + '/ride',
@@ -40,6 +60,7 @@ WildRydes.map = WildRydes.map || {};
                 alert('An error occured when requesting your unicorn:\n' + jqXHR.responseText);
             }
         });
+        */
     }
 
     function completeRequest(result) {
