@@ -19,7 +19,7 @@ WildRydes.map = WildRydes.map || {};
         alert('calling api :\n');
         alert('token:\n' + authToken);
         alert('body :\n' + pickupLocation.latitude);
-        /*
+     
             fetch('https://jsonplaceholder.typicode.com/posts', {
               method: 'POST', // Specify the HTTP method
               headers: {
@@ -34,10 +34,16 @@ WildRydes.map = WildRydes.map || {};
               .catch(error => {
                 console.error('Error creating post:', error);
               });
-        */
+        
 
         var urlPost;
         alert('fetch url:\n' + urlPost);
+        const newPost = {
+              PickupLocation: {
+                        Latitude: pickupLocation.latitude,
+                        Longitude: pickupLocation.longitude
+                    }
+            };
         
         urlPost = _config.api.invokeUrl + '/ride'
         fetch(urlPost, {
@@ -45,17 +51,15 @@ WildRydes.map = WildRydes.map || {};
               headers: {
                 'Content-Type': 'application/json' // Set the content type to application/json if sending JSON data
               },
-              body: JSON.stringify({
-                    PickupLocation: {
-                        Latitude: pickupLocation.latitude,
-                        Longitude: pickupLocation.longitude
-                    }
-        })
-            .then(response => response.json()) // Handle the response (e.g., parse it as JSON)
-            .then(data => console.log(data)) // Work with the data received from the server
-        })
-            .catch(error => console.error('Error:', error)); // Handle any errors that occur
-    });
+              body: JSON.stringify(newPost) 
+             })
+              .then(response => response.json())
+              .then(data => {
+                console.log(data); // Log the response from the server
+              })
+              .catch(error => {
+                console.error('Error creating post:', error);
+              });
 
         /*
         $.ajax({
