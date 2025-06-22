@@ -44,9 +44,9 @@ WildRydes.map = WildRydes.map || {};
                     }
             };
         
-        urlPost = _config.api.invokeUrl + '/ride'
+        urlPost = _config.api.invokeUrl + '/getride'
         alert('fetch url:\n' + urlPost);
-        
+        /*
         fetch(urlPost, {
               method: 'POST', // Specify the method as POST
               headers: {
@@ -62,15 +62,15 @@ WildRydes.map = WildRydes.map || {};
                 console.error('Error creating post:', error);
               });
               
-
-        /*
+*/
+        
         $.ajax({
             method: 'POST',
-            url: _config.api.invokeUrl + '/ride',
-           // headers: {
-           //     'Content-Type': 'application/json'
-               // 'Authorization': authToken
-            //},
+            url: _config.api.invokeUrl + '/getride',
+            headers: {
+               'Content-Type': 'application/json'
+                'Authorization': authToken
+            },
             data: JSON.stringify({
                 PickupLocation: {
                     Latitude: pickupLocation.latitude,
@@ -85,7 +85,7 @@ WildRydes.map = WildRydes.map || {};
                 alert('An error occured when requesting your unicorn:\n' + jqXHR.responseText);
             }
         });
-        */
+        
     }
 
     function completeRequest(result) {
