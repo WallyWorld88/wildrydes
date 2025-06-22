@@ -46,11 +46,12 @@ WildRydes.map = WildRydes.map || {};
         
         urlPost = _config.api.invokeUrl + '/getride'
         alert('fetch url:\n' + urlPost);
-        /*
+       
         fetch(urlPost, {
               method: 'POST', // Specify the method as POST
               headers: {
-                'Content-Type': 'application/json' // Set the content type to application/json if sending JSON data
+                 'Content-Type': 'application/json'
+                'Authorization': authToken
               },
               body: JSON.stringify(newPost) 
              })
@@ -62,8 +63,8 @@ WildRydes.map = WildRydes.map || {};
                 console.error('Error creating post:', error);
               });
               
-*/
-        
+
+        /*
         $.ajax({
             method: 'POST',
             url: _config.api.invokeUrl + '/getride',
@@ -85,7 +86,7 @@ WildRydes.map = WildRydes.map || {};
                 alert('An error occured when requesting your unicorn:\n' + jqXHR.responseText);
             }
         });
-        
+        */
     }
 
     function completeRequest(result) {
