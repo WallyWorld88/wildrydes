@@ -16,61 +16,11 @@ WildRydes.map = WildRydes.map || {};
         window.location.href = '/signin.html';
     });
     function requestUnicorn(pickupLocation) {
-        alert('calling api :\n');
-        alert('token:\n' + authToken);
-        alert('body :\n' + pickupLocation.latitude);
-     /*
-            fetch('https://jsonplaceholder.typicode.com/posts', {
-              method: 'POST', // Specify the HTTP method
-              headers: {
-                'Content-Type': 'application/json' // Set the content type for the request body
-              },
-              body: JSON.stringify(newPost) // Convert the JavaScript object to a JSON string
-            })
-              .then(response => response.json())
-              .then(data => {
-                console.log(data); // Log the response from the server
-              })
-              .catch(error => {
-                console.error('Error creating post:', error);
-              });
-       */ 
-
-        var urlPost;
-        const newPost = {
-              PickupLocation: {
-                        Latitude: pickupLocation.latitude,
-                        Longitude: pickupLocation.longitude
-                    }
-            };
-        
-        urlPost = _config.api.invokeUrl + '/getride'
-        alert('fetch url:\n' + urlPost);
-       
-        fetch(urlPost, {
-              method: 'POST', // Specify the method as POST
-              headers: {
-                 'Content-Type': 'application/json'
-                'Authorization': authToken
-              },
-              body: JSON.stringify(newPost) 
-             })
-              .then(response => response.json())
-              .then(data => {
-                console.log(data); // Log the response from the server
-              })
-              .catch(error => {
-                console.error('Error creating post:', error);
-              });
-              
-
-        /*
         $.ajax({
             method: 'POST',
             url: _config.api.invokeUrl + '/getride',
             headers: {
-               'Content-Type': 'application/json'
-                'Authorization': authToken
+                Authorization: authToken
             },
             data: JSON.stringify({
                 PickupLocation: {
@@ -86,7 +36,6 @@ WildRydes.map = WildRydes.map || {};
                 alert('An error occured when requesting your unicorn:\n' + jqXHR.responseText);
             }
         });
-        */
     }
 
     function completeRequest(result) {
